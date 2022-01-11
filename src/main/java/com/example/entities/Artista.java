@@ -1,5 +1,6 @@
 package com.example.entities;
-import java.util.ArrayList;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +19,7 @@ public class Artista {
 	@Column(name = "tipo_ide")
 	private String tipoIde;
 	
-	@Column(name = "num_ide")
+	@Column(name = "numero_ide")
 	private String numIde;
 	
 	@Column(name = "nombres")
@@ -27,14 +28,14 @@ public class Artista {
 	@Column(name = "apellidos")
 	private String apellidos;
 	
-	@OneToMany(mappedBy="artistas")
-	private ArrayList<Obra> obras;
+	@OneToMany(mappedBy="artista")
+	private List<Obra> obras;
 	
 	public Artista() {
 		
 	}
 
-	public Artista(Long id, String tipoIde, String numIde, String nombres, String apellidos, ArrayList<Obra> obras) {
+	public Artista(Long id, String tipoIde, String numIde, String nombres, String apellidos, List<Obra> obras) {
 		this.id = id;
 		this.tipoIde = tipoIde;
 		this.numIde = numIde;
@@ -83,11 +84,11 @@ public class Artista {
 		this.apellidos = apellidos;
 	}
 	
-	public ArrayList<Obra> getObras() {
+	public List<Obra> getObras() {
 		return obras;
 	}
 	
-	public void setObras(ArrayList<Obra> obras) {
+	public void setObras(List<Obra> obras) {
 		this.obras = obras;
 	}
 }

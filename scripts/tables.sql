@@ -5,10 +5,10 @@
 CREATE TABLE IF NOT EXISTS public.artistas
 (
     id bigint NOT NULL,
-    tipo_ide character varying(5)[] COLLATE pg_catalog."default" NOT NULL,
+    tipo_ide character varying(5) COLLATE pg_catalog."default" NOT NULL,
     numero_ide character varying(20) COLLATE pg_catalog."default" NOT NULL,
     nombres character varying(30) COLLATE pg_catalog."default" NOT NULL,
-    apellidos character varying(30)[] COLLATE pg_catalog."default" NOT NULL,
+    apellidos character varying(30) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT artistas_pkey PRIMARY KEY (id)
 )
 
@@ -67,11 +67,12 @@ CREATE TABLE IF NOT EXISTS public.museos_x_obras
 (
     id_museo bigint NOT NULL,
     id_obra bigint NOT NULL,
+    id bigint NOT NULL,
+    CONSTRAINT museos_x_obras_pkey PRIMARY KEY (id),
     CONSTRAINT id_museo FOREIGN KEY (id_museo)
         REFERENCES public.museos (id) MATCH SIMPLE
         ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        NOT VALID,
+        ON DELETE NO ACTION,
     CONSTRAINT id_obra FOREIGN KEY (id_obra)
         REFERENCES public.obras (id) MATCH SIMPLE
         ON UPDATE NO ACTION

@@ -1,6 +1,6 @@
 package com.example.entities;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,19 +28,19 @@ public class Obra {
 	@JoinColumn(name = "id_artista") 
 	private Artista artista;
 	
-	@OneToMany(mappedBy="obras")
-	private ArrayList<MuseoObra> museoObra;
+	@OneToMany(mappedBy="obra")
+	private List<MuseoObras> museoObras;
 	
 	public Obra () {
 		
 	}
 
-	public Obra(Long id, String nombre, String pais, Artista artista, ArrayList<MuseoObra> museoObra) {
+	public Obra(Long id, String nombre, String pais, Artista artista, List<MuseoObras> museoObras) {
 		this.id = id;
 		this.nombre = nombre;
 		this.pais = pais;
 		this.artista = artista;
-		this.museoObra = museoObra;
+		this.museoObras = museoObras;
 	}
 
 
@@ -77,12 +77,12 @@ public class Obra {
 		this.artista = artista;
 	}
 
-	public ArrayList<MuseoObra> getMuseoObra() {
-		return museoObra;
+	public List<MuseoObras> getMuseoObras() {
+		return museoObras;
 	}
 
-	public void setMuseoObra(ArrayList<MuseoObra> museoObra) {
-		this.museoObra = museoObra;
+	public void setMuseoObras(List<MuseoObras> museoObras) {
+		this.museoObras = museoObras;
 	}
 	
 	
